@@ -1,7 +1,8 @@
-'use client'
+
+import { forwardRef, useMemo } from 'react';
 import { motion } from 'framer-motion';
 
-function PageTransition({ children, ...rest }) {
+function PageTransition({ children, ...rest }, ref) {
     const onTheRight = { x: '100%' };
     const inTheCenter = { x: 0 };
     const onTheLeft = { x: '-100%' };
@@ -10,6 +11,7 @@ function PageTransition({ children, ...rest }) {
 
     return (
         <motion.div
+            ref={ref}
             initial={onTheRight}
             animate={inTheCenter}
             exit={onTheLeft}
@@ -21,7 +23,7 @@ function PageTransition({ children, ...rest }) {
     );
 }
 
-export default PageTransition;
+export default forwardRef(PageTransition);
 
 // Jsx
 // import React, { forwardRef, useMemo } from 'react';

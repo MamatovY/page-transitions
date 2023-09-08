@@ -1,10 +1,14 @@
+import { forwardRef, useMemo } from 'react';
+import PageTransition from '../components/PageTransition';
 
-const Home = () => {
+const Home = (props, ref) => {
     return (
-        <div className='home'>
-            Home
-        </div>
+        <PageTransition ref={ref}>
+            <main className='home'>
+                Home
+            </main>
+        </PageTransition>
     )
 }
 
-export default Home
+export default forwardRef(Home);
